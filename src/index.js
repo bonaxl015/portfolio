@@ -1,16 +1,18 @@
 $(document).ready(function() {
-  const deviceWidth = $(window).width();
-  const deviceHeight = $(window).height();
 
-  if (deviceWidth < 550) {
-    $("#nav-expanded").hide();
-  } else {
-    $("#nav-expanded").show();
-  }
+  // close hamburger menu when window is resized more than 550px
+  $(window).resize(function() {
+    if ($(window).width() > 800) {
+      $("#hamburger-menu").hide();
+    }
+  });
 
-  if (deviceWidth < 900) {
-    $("#semicircle-bg").hide();
-  } else {
-    $("#semicircle-bg").show();
-  }
+  // toggle menu when clicked
+  $("#hamburger-toggle").on("click", function() {
+    $("#hamburger-menu").toggle();
+  });
+
+  $(".nav-vertical-list").on("click", function() {
+    $("#hamburger-menu").toggle();
+  });
 });
